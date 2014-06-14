@@ -1,0 +1,66 @@
+<nav class="navbar navbar-inverse" role="navigation">
+	<div class="container-fluid">
+    
+    <div class="navbar-header">
+		 <a class="navbar-brand" href="#">Query Management Panel</a>
+    </div>
+
+    <button style="margin-left:400px;margin-top:8px" class="btn btn-success " id="refresh"><i style="margin-right:5px" class="fa fa-refresh"></i>Refresh</button>
+
+  </div>
+</nav>
+
+
+<div id="query_table">
+	<%= render "query/table" %>
+</div>
+
+<script>
+  $(document).ready(function()
+  {
+  	
+    init();
+  	$("#refresh").on('click', function(e){
+  		console.log(e);
+  		refresh_queries();
+  	});
+    setInterval("refresh_queries()",10000);
+  });
+
+  function init()
+  {
+  	jQuery('.datetimepicker').datetimepicker();
+
+    var total_count = $("#table tr").length;
+    var overdue_count = $("#table tr.danger").length;
+    var scheduled_followup = total_count - overdue_count - 1; //-1 for excluding the table head
+
+
+    $("#overdue_count").html(overdue_count);
+    $("#scheduled_followup").html(scheduled_followup);
+   
+    if( overdue_count==0 & scheduled_followup==0 )
+    {
+      var empty = "No Queries for today"
+      $("#empty").html(empty);
+    };
+  }
+
+
+  function refresh_queries()
+  {
+    $.ajax(
+      { 
+        url: "/query_table" 
+      }
+    )
+    .done(function(data)
+    {
+    	$("#query_table").html(data);
+    	init();
+    });
+  }
+</script>
+
+
+

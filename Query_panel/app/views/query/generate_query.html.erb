@@ -1,0 +1,50 @@
+
+<nav class="navbar navbar-inverse" role="navigation">
+	<div class="container-fluid">
+    	<div class="navbar-header">
+        	<a class="navbar-brand" href="#">Query Panel</a>
+        </div>
+    </div>
+</nav>
+<!--<h4 style="text-align:center;font-size:40px;color:#990000"><%=flash.now[:success] = "Your book was not found" %> </h4> -->
+
+
+<form class="form-horizontal" role="form" action="/query_generated" method ="post" style="margin-top:100px; margin-left:440px; width:600px">
+
+	<div style="text-align:center; padding-right:80px">
+	
+		<h1 style="color:#B22222"><strong>Any Query?.... Post Here....!!</strong></h1>
+
+	</div>
+
+	<div align="center" class="form-group" style="margin-top:40px">
+   		<div class="col-sm-10">
+			<input style="border-style:solid; border-color: black" type="text" class="form-control" id="inputName3" name = "name" placeholder="Name"required />
+		</div>
+	</div>
+	
+	<br/>
+	
+	<div class="form-group">
+   		<div class="col-sm-10">
+			<input type="text" class="form-control" id="inputRest3" name="restaurant_name" placeholder="Restaurant Name" style="border-style:solid; border-color: black" required />
+		</div>
+	</div>
+	
+	<br/>
+	
+	<div class="form-group">
+		<div class="col-sm-10">
+			<textarea rows="6" column="6" class="form-control" id="inputComment3" name="comment" placeholder="Comment" style="border-style:solid; border-color: black" required ></textarea>
+		</div>
+	</div>
+	
+	<br/>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-10">
+			 <button type="submit"  class="btn btn-danger" style="border-style:solid; border-color: black">Submit</button>
+		</div>
+  	</div>
+
+</form>
