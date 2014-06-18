@@ -20,19 +20,25 @@
   {
   	
     init();
+    
   	$("#refresh").on('click', function(e){
-  		console.log(e);
-  		refresh_queries();
+      if ( $(".in").length != 0 ) //no autorefresh while modal is open
+      {
+        return false
+      }
+      console.log(e);
+      refresh_queries();   
   	});
-    setInterval("refresh_queries()",10000);
+    setInterval("$('button#refresh').trigger('click');", 10000); //
+    $('button#refresh').trigger('click');
   });
 
   function init()
   {
   	jQuery('.datetimepicker').datetimepicker();
 
-    var total_count = $("#table tr").length;
-    var overdue_count = $("#table tr.danger").length;
+    var total_count = $("#queries_table tr").length;
+    var overdue_count = $("#queries_table tr.danger").length;
     var scheduled_followup = total_count - overdue_count - 1; //-1 for excluding the table head
 
 
@@ -45,7 +51,6 @@
       $("#empty").html(empty);
     };
   }
-
 
   function refresh_queries()
   {
