@@ -1,0 +1,32 @@
+
+<nav class="navbar navbar-inverse" role="navigation">
+	<span class="navbar-brand" style="margin-top:6px;color:#00FFFF"href="#">EduBook</span>
+	<a class="navbar-brand" style="margin-top:6px"href="/profile">Profile</a>
+	<a class="navbar-brand" style="margin-top:6px"href="/upload_file">Uplaod Notes</a>
+	<a class="navbar-brand" style="margin-top:6px"href="/course">Add Course</a>
+	<a class="navbar-brand" style="margin-top:6px"href="/uploads">My Uploads <span class="badge" id="my_count"></span></a>
+	<a class="navbar-brand" style="margin-top:6px"href="/overall_uploads">Overall Uploads <span class="badge" id="total_count"></span></a>
+
+	<div >
+		<form action="/logout" method="post">
+
+			<div style="margin-top:10px">
+				<input style="float:right" class="btn btn-info" type="submit" value="Logout"/>
+			</div>
+		</form>
+
+	</div>
+	
+</nav>
+<h1 style="text-align:center">Welcome <%= @teacher.name %></h1>
+<br/>
+<h4 style="text-align:center;text-color:red">Wanna Upload Notes? <%= link_to 'Go Upload Here', upload_path %>
+	<br/><br/>
+<h4 style="text-align:center;text-color:red">Wanna Create New Course? <%= link_to 'Go Create Here', add_course_path %></h4>
+
+<script>
+	var my_count = <%=@my_count%>
+	$("#my_count").html(my_count);
+	var total_count = <%=@total_count%>
+	$("#total_count").html(total_count);
+</script>
