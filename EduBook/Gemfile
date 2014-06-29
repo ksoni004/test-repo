@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 gem 'therubyracer'
 gem 'hirb'
 gem 'paperclip'
@@ -49,3 +49,4 @@ end
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
+gem 'rails_12factor', group: :production

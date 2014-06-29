@@ -189,7 +189,7 @@ class TeachersController < ApplicationController
 	end
 
 	def download_file
-		@b = Document.find(24)
+		@b = Document.find(1)
 		#response.headers["Content-Type"] = "application/pdf; charset=utf-8"
 		#send_data pdf_bytes, :disposition => 'inline', :type => 'application/pdf'
 		#send_file(@b.avatar.path, :type => 'application/pdf', :disposition_attachment => 'inline')
