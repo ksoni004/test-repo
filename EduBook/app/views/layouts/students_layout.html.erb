@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EduBook</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<nav class="navbar navbar-inverse" role="navigation">
+		<a class="navbar-brand" style="margin-top:6px;color:#57a9d9"href="/"><b>EduBook</b></a>
+		<a class="navbar-brand" style="margin-top:6px"href="/student_profile">Profile</a>
+		<a class="navbar-brand" style="margin-top:6px"href="/total_uploads">Uploads <span class="badge" id="total_count"></span></a>
+		<a style="color:white;font-size:34px;margin-top:4px"class="btn glyphicon glyphicon-bell" style="font-size:34px" type="button" href="/s_overall_notification"><span style="padding-left:5px;margin-left:-12px;position:absolute;margin-top:-4px;padding-right:5px;padding-bottom:5px;padding-top:3px;color:black" class="badge" id="noti_count"></span></a>
+
+		<div style="margin-top:-55px;margin-left:35px" class="for_css">
+			  <li  style="margin-left:1280px;margin-top:-10px;margin-bottom:-2px" class="for_css_2"  id="dropdownMenu2" data-toggle="dropdown"><i style="font-size:3em; color: white" class="fa fa-cog fa-3"></i></li>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2" style="margin-left:1176px">
+							<li role="presentation" ><a role="menuitem" tabindex="-1" href="/s_change_password"><span class="glyphicon glyphicon-lock"><span class="course" >Change</span><span style="margin-left:5px">Password</span></a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="/s_feedback" ><i class="fa fa-star-o"></i><span class="course">FeedBack</span></a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="/student_logout" ><i class="fa fa-power-off"></i><span class="course">Logout</span></a></li>
+			  </ul>
+			 </div>
+	</nav>
+
+<%= yield %>
+
+</body>
+</html>

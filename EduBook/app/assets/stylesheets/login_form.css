@@ -1,0 +1,135 @@
+
+#login-form {
+    margin: 50px auto;
+    width: 300px;
+    border: 1px solid #282830;
+    border-top: 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#login-form h3 {
+    background-color: #282830;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 14px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#login-form fieldset {
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+
+    padding: 20px;
+    position: relative;
+}
+
+#login-form fieldset:before {
+    background-color: #fff;
+    content: "";
+    height: 8px;
+    left: 50%;
+    margin: -4px 0 0 -4px;
+    position: absolute;
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 8px;
+}
+
+#login-form input {
+    font-size: 14px;
+
+}
+
+#login-form input[type="email"],
+#login-form input[type="password"] {
+    border: 1px solid #dcdcdc;
+    text-align: 50px;
+    padding: 12px 10px;
+    width: 238px;
+}
+
+#login-form input[type="email"] {
+    border-radius: 0px 0px 0px 0px;
+}
+
+#login-form input[type="password"] {
+    border-top: none;
+    border-radius: 0px 0px 0px 0px;
+}
+
+#login-form input[type="submit"] {
+    background: #1dabb8;
+    border-radius: 3px;
+    color: #fff;
+    float: center;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 12px 20px;
+}
+
+#login-form input[type="submit"]:hover { background: #198d98; }
+
+#login-form footer {
+    font-size: 12px;
+    margin-top: 16px;
+}
+
+.info {
+    background: #e5e5e5;
+    border-radius: 50%;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    width: 20px;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 14px 14px;
+    pointer-events: none;
+    padding-top: 16px;
+    color: black;
+    background-color: #eee;
+    border: 1px solid #999;
+    border-radius: 0px  0px 0px 0px;
+    top :0px;
+
+}
+element.style {
+padding-left: 25px;
+}
+
+.left-inner-addon1 {
+    position: relative;
+}
+.left-inner-addon1 input {
+    padding-left: 30px;    
+}
+.left-inner-addon1 i {
+    position: absolute;
+    padding: 15px 14.4px;
+    pointer-events: none;
+    padding-top: 14px;
+    color: black;
+    background-color: #eee;
+    border: 1px solid #999;
+    border-radius: 0px  0px 0px 0px;
+}
+#wrap { 
+    width: 80%; 
+    margin: 0 auto; 
+}

@@ -1,22 +1,9 @@
-<nav class="navbar navbar-inverse" role="navigation">
-	<span class="navbar-brand" style="margin-top:6px;color:#00FFFF"href="#">EduBook</span>
-	<a class="navbar-brand" style="margin-top:6px"href="/total_uploads">Uploads <span class="badge" id="total_count"></span></a>
 
-	<div >
-		<form action="/student_logout" method="post">
-
-			<div style="margin-top:10px">
-				<input style="float:right" class="btn btn-info" type="submit" value="Logout" />
-			</div>
-		</form>
-
-	</div>
-	
-</nav>
 <h1 style="text-align:center">Welcome <%= @student.name %></h1>
+
 <script>
-	
 	var total_count = <%=@total_count%>
 	$("#total_count").html(total_count);
-		
+	var noti_count = <%=@noti_count%>
+	$("#noti_count").html(noti_count);
 </script>

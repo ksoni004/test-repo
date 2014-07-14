@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624090347) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140706123859) do
 
   create_table "courses", force: true do |t|
     t.integer "teacher_id"
@@ -28,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140624090347) do
 
   create_table "documents", force: true do |t|
     t.integer  "course_id"
+    t.integer  "counter",             default: 0
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,6 +33,30 @@ ActiveRecord::Schema.define(version: 20140624090347) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.integer "teacher_id"
+    t.integer "student_id"
+    t.integer "ui"
+    t.integer "simplicity"
+    t.integer "performance"
+    t.integer "content_quality"
+    t.integer "background"
+    t.integer "navigation"
+    t.integer "links"
+    t.integer "color_choices"
+    t.integer "graphics"
+    t.integer "spelling_and_grammar"
+    t.float   "average"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "teacher_id"
+    t.string   "semester"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "semesters", force: true do |t|

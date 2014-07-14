@@ -1,0 +1,39 @@
+
+<table style="border-width:2px black;  table-layout:fixed" class="table table-bordered" id="total_count">
+	
+	<colgroup>
+	  <col style="width:30px">
+	  <col style="width:40px">
+	  <col style="width:30px">
+	  <col style="width:150px">
+	</colgroup>
+	
+	<tr style="background-color: grey">
+    <th style="text-align:center;width:100px;border:2px solid black">Uploaded by</th>
+    <th style="text-align:center;width:100px;border:2px solid black">Uploaded on</th>
+    <th style="text-align:center;width:30px;border:2px solid black">Uploaded for</th>
+    <th style="text-align:center;width:150px;border:2px solid black">Comment</th>
+	</tr>
+
+	<% @notification.each do |notification| %>
+		<tr style="border:2px solid grey">
+			<td style="border:2px solid black" align="center"><%= notification.teacher_name+" "+notification.teacher_surname %></td>
+			<td style="border:2px solid black" align="center"><%= notification.created_at.to_formatted_s(:long_ordinal) %></td>
+			<td style="border:2px solid black" align="center"><%= notification.year+ " "+notification.branch %></td>
+			<td style="border:2px solid black"><%= notification.comment.html_safe %></td>
+		</tr>
+	<% end %>
+</table>
+
+<hr>
+
+<div class="apple_pagination" style="position:absolute;left:550px">
+	<%=will_paginate @notification%>
+</div>
+
+<script>
+	var total_count = <%=@total_count%>
+	$("#total_count").html(total_count);
+	var noti_count = <%=@noti_count%>
+	$("#noti_count").html(noti_count);
+</script>

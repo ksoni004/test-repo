@@ -1,33 +1,13 @@
-<nav class="navbar navbar-inverse" role="navigation">
-	<span class="navbar-brand" style="margin-top:6px;color:#00FFFF"href="#">EduBook</span>
-	<a class="navbar-brand" style="margin-top:6px"href="/profile">Profile</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/upload_file">Uplaod Notes</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/course">Add Course</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/uploads">My Uploads <span class="badge" id="my_count"></span></a>
-	<a class="navbar-brand" style="margin-top:6px"href="/overall_uploads">Overall Uploads <span class="badge" id="total_count"></span></a>
-
-	<div >
-		<form action="/logout" method="post">
-
-			<div style="margin-top:10px">
-				<input style="float:right" class="btn btn-info" type="submit" value="Logout"/>
-			</div>
-		</form>
-	</div>
-	
-</nav>
-
 <div align="center" style="margin-top:60px">
 	<form action="/course" method="post">
 		
 		<% if flash[:notice] %>
-			<div class="notice"><h4 style="color:red"><%= flash[:notice] %></h4></div>
+			<div class="notice" style="margin-left:40px;margin-bottom:-25	px"><h4 style="color:red;text-align:center"><%= flash[:notice] %></h4></div>
 		<% end %>
-		<br/><br/>
-
+		<br/><br/><br/>
 		<input type="hidden" value=<%=@teacher.id %> name="t_id">
-		<label style="margin-left:-220px">Subject Name <span style="padding-left:20px">:</span> </label>
-		<div class="form_group" style="float:center;width:15%;margin-top:-32px;margin-left:200px">
+		<label style="margin-left:-220px">Subject Name <span style="padding-left:20px">:</span> </label>	
+		<div class="form_group" style="float:center;width:18%;margin-top:-32px;margin-left:200px">
 			<input type="text" class="form-control" name="course_name" required placeholder="Enter Subject Name"/>
 		</div>
 
@@ -35,11 +15,11 @@
 
 		<label style="margin-left:-200px">Subject for<span style="padding-left:20px">:</span> </label>
 
-		<div class="form_group" style="float:center;width:15%;margin-top:-32px;margin-left:200px">
+		<div class="form_group" style="float:center;width:18%;margin-top:-32px;margin-left:200px">
 			
 			<select class="form-control" name="semesters[]" multiple="true" id="a1" placeholder="Enter Semesters">
 				<% @semesters.each do |semester| %>
-					<option value= <%=semester.id %> > <%= semester.year %> <%= semester.branch %> <%= semester.semester_type%> </option>
+					<option value= <%=semester.id %> > <%= semester.year %> - <%= semester.branch %> - <%= semester.semester_type%> </option>
 				<% end %>
 			</select>
 
@@ -49,14 +29,28 @@
 
 		<button type="submit"  class="btn btn-warning" style="border-style:solid; border-color: black;margin-left:40px; background-color:purple">Create Subject</button>
 	</form>
+	
 </div>
 
 <script>
 	
 	$(document).ready(function() { $("#a1").select2();});
+
 	var my_count = <%=@my_count%>
 	$("#my_count").html(my_count);
 	var total_count = <%=@total_count%>
 	$("#total_count").html(total_count);
-		
-</script>
+	var noti_count = <%=@noti_count%>
+	$("#noti_count").html(noti_count);
+	var my_noti_count = <%=@my_noti_count%>
+	$("#my_noti_count").html(my_noti_count);
+
+	$("form").on('submit', function(e)
+  {
+  	if ( !$("#a1").val() )
+		{
+			e.preventDefault();
+			alert("Please enter Semester..!!");
+		}
+	});
+	</script>

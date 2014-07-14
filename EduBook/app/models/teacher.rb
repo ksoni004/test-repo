@@ -1,5 +1,7 @@
 class Teacher < ActiveRecord::Base
+	has_many :feedbacks
 	has_many :courses
+	has_many :notifications
 	validates :email, :uniqueness => true
 	
 	

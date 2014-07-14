@@ -1,18 +1,4 @@
-<nav class="navbar navbar-inverse" role="navigation">
-	<span class="navbar-brand" style="margin-top:6px;color:#00FFFF"href="#">EduBook</span>
-	<a class="navbar-brand" style="margin-top:6px"href="/student_profile">Profile</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/total_uploads">Uploads <span class="badge" id="total_count"></span></a>
 
-	<div >
-		<form action="/student_logout" method="post">
-
-			<div style="margin-top:10px">
-				<input style="float:right" class="btn btn-info" type="submit" value="Logout" />
-			</div>
-		</form>
-	</div>
-	
-</nav>
 <table style="border-width:2px black; background-color: #D3D3D3; table-layout:fixed" class="table table-bordered">
 	<colgroup>
 	  <col style="width:100px">
@@ -29,32 +15,28 @@
 	    <th colspan=2 style="text-align:center;width:75px;border:2px solid black">Options</th>
 	</tr>
 
-	<% i=0 %>
-	<% @courses.each do |c| %>
-		<% c.each do |course| %>
-		<% if !course.documents.blank? %>
-			<% course.documents.each do |document| %>
-				<tr style="border:2px solid grey">
-					<td style="border:2px solid black" align="center"><%= @teachers.at(i).name %></td>
-					<td style="border:2px solid black" align="center"><%= course.course_name %></td>
-					<td style="border:2px solid black" align="center"><%= document.created_at %></td>
-					<td style="border:2px solid black" align="center"><%= document.comment %></td>
-					<td colspan=2 style="border:2px solid black"align="center">
-						<p>
-						<a class="btn btn-primary btn-sm" href="http://docs.google.com/gview?url=@b.avatar.url&embedded=true"><i style="margin-right:5px" class="fa fa-file-pdf-o"></i>View</a>
-						<a class="btn btn-warning btn-sm" href= "<%= document.avatar.url%>"><i style="margin-right:5px" class="fa fa-download"></i>Download</a>
-						</p>
-					</td>
-				</tr>
-			<% end %>
-		<% end %>
-		<% end %>
-		<% i=i+1 %>
+	<% @documents.each do |document| %>
+		<tr style="border:2px solid grey">
+			<td style="border:2px solid black" align="center"><%= document.teacher_name %></td>
+			<td style="border:2px solid black" align="center"><%= document.course_name %></td>
+			<td style="border:2px solid black" align="center"><%= document.created_at.to_formatted_s(:long_ordinal)%></td>
+			<td style="border:2px solid black" align="center"><%= document.comment %></td>
+			<td colspan=2 style="border:2px solid black"align="center">
+				<p>
+				<a class="btn btn-primary btn-sm" href="http://docs.google.com/viewer?url=http://enigmatic-dawn-9721.herokuapp.com<%= document.avatar.url%>&embedded=true" target="_blank"><i style="margin-right:5px" class="fa fa-file-pdf-o"></i>View</a>
+				<a class="btn btn-warning btn-sm" href= "<%= document.avatar.url%>"><i style="margin-right:5px" class="fa fa-download"></i>Download</a>
+				</p>
+			</td>
+		</tr>
 	<% end %>
 </table>
+<div class="apple_pagination" style="position:absolute;left:550px;top:550px">
+	<%=will_paginate @documents%>
+</div>
 <script>
 	
 	var total_count = <%=@total_count%>
 	$("#total_count").html(total_count);
-		
+	var noti_count = <%=@noti_count%>
+	$("#noti_count").html(noti_count);		
 </script>

@@ -1,22 +1,8 @@
-<nav class="navbar navbar-inverse" role="navigation">
-	<span class="navbar-brand" style="margin-top:6px;color:#00FFFF"href="#">EduBook</span>
-	<a class="navbar-brand" style="margin-top:6px"href="/profile">Profile</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/upload_file">Uplaod Notes</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/course">Add Course</a>
-	<a class="navbar-brand" style="margin-top:6px"href="/uploads">My Uploads <span class="badge" id="my_count"></span></a>
-	<a class="navbar-brand" style="margin-top:6px"href="/overall_uploads">Overall Uploads <span class="badge" id="total_count"></span></a>
-	<div>
-		<form action="/logout" method="post">
-			<div style="margin-top:10px">
-				<input style="float:right" class="btn btn-info" type="submit" value="Logout"/>
-			</div>
-		</form>
-	</div>
-</nav>
 
 <% if flash[:notice] %>
 	<div class="notice"><h4 style="color:red;text-align:center"><%= flash[:notice] %></h4></div>
 <% end %>
+
 
 <table style="border-width:2px black; background-color: #D3D3D3; table-layout:fixed" class="table table-bordered" id="my_count">
 
@@ -24,69 +10,75 @@
 	  <col style="width:100px">
 	  <col style="width:89px">
 	  <col style="width:100px">
-	  <col style="width:150px">
-	  <col style="width:75px">
+	  <col style="width:140px">
+	  <col style="width:85px">
 	</colgroup>
 
 	<tr style="background-color: grey">
 	    <th style="text-align:center;width:100px;border:2px solid black">Uploaded by</th>
 	    <th style="text-align:center;width:89px;border:2px solid black">Subject</th>
 	    <th style="text-align:center;width:100px;border:2px solid black">Uploaded on</th>
-	    <th style="text-align:center;width:150px;border:2px solid black">Comment</th>
-	    <th colspan=2 style="text-align:center;width:75px;border:2px solid black">Options</th>
+	    <th style="text-align:center;width:140px;border:2px solid black">Comment</th>
+	    <th colspan=2 style="text-align:center;width:85px;border:2px solid black">Options</th>
 	</tr>
 
-	<% @courses.each do |course| %>
-		<% if !course.documents.blank? %>
-			<% course.documents.each do |document| %>
-				<tr style="border:2px solid grey">
-					<td style="border:2px solid black" align="center"><%= @teacher.name %></td>
-					<td style="border:2px solid black" align="center"><%= course.course_name %></td>
-					<td style="border:2px solid black" align="center"><%= document.created_at %></td>
-					<td style="border:2px solid black" align="center"><%= document.comment %></td>
-					<td colspan=2 style="border:2px solid black"align="center">
-						
-						<p>
-						<a class="btn btn-primary btn-sm" href="http://docs.google.com/gview?url=@b.avatar.url&embedded=true"><i style="margin-right:5px" class="fa fa-file-pdf-o"></i>View</a>
+	<% @documents.each do |document| %>
+		<tr style="border:2px solid grey">
+			<td style="border:2px solid black" align="center"><%= @teacher_name %></td>
+			<td style="border:2px solid black" align="center"><%= document.course_name %></td>
+			<td style="border:2px solid black" align="center"><%= document.created_at.to_formatted_s(:long_ordinal)%></td>
+			<td style="border:2px solid black" align="center"><%= document.comment %></td>
+			<td colspan=2 style="border:2px solid black"align="center">
+				
+				<p>
+				<a class="btn btn-primary btn-sm" href="http://docs.google.com/viewer?url=http://enigmatic-dawn-9721.herokuapp.com<%= document.avatar.url%>&embedded=true" target="_blank"><i style="margin-right:5px" class="fa fa-file-pdf-o"></i>View</a>
 
-						<a class="btn btn-warning btn-sm" href= "<%= document.avatar.url%>"><i style="margin-right:5px" class="fa fa-download"></i>Download</a>
+				<a class="btn btn-warning btn-sm" href= "<%=document.avatar.url%>"><i style="margin-right:5px" class="fa fa-download"></i>Download</a>
 
-						<button class="btn btn-danger" style="padding-left:10px"data-toggle="modal" data-target="#myModal_<%=document.id%>"><i style="margin-right:4px" class="fa fa-trash-o"></i>Remove</button>
-						</p>
+				<button class="btn btn-danger" style="padding-left:10px"data-toggle="modal" data-target="#myModal_<%=document.id%>"><i style="margin-right:4px" class="fa fa-trash-o"></i>Remove</button>
+				</p>
 
-						<div class="modal fade" id="myModal_<%=document.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						      </div>
-						      
-						      <div class="modal-body">
-						       <h4 style="color:black" id="delete_<%=document.id%>"><b>Are you sure you want to delete?</b><h4>
-						      </div>
-						      
-						      <div class="modal-footer">
-						        <form action="/remove_file"	method="post">
-											<input type="hidden" name="document_id" value=<%= document.id %>/>
-											<button style="border-style:solid; border-color: black 2px" type="submit" class="btn btn-danger">Yes</button>
-											<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-										</form>
-						      </div>
+				<div class="modal fade" id="myModal_<%=document.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				      </div>
+				      
+				      <div class="modal-body">
+				       <h4 style="color:black" id="delete_<%=document.id%>"><b>Are you sure you want to delete?</b><h4>
+				      </div>
+				      
+				      <div class="modal-footer">
+				        <form action="/remove_file"	method="post">
+									<input type="hidden" name="document_id" value=<%= document.id %>/>
+									<button style="border-style:solid; border-color: black 2px" type="submit" class="btn btn-danger">Yes</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+								</form>
+				      </div>
 
-						    </div>
-						  </div>
-						</div>
-					</td>
-				</tr>
-			<% end %>
-		<% end %>
+				    </div>
+				  </div>
+				</div>
+			</td>
+		</tr>
 	<% end %>
+
 </table>
+<div class="apple_pagination" style="position:absolute;left:550px;top:550px">
+	<%=will_paginate @documents%>
+</div>
 
 <script>
+
 	var my_count = <%=@my_count%>
 	$("#my_count").html(my_count);
 	var total_count = <%=@total_count%>
 	$("#total_count").html(total_count);
+	var noti_count = <%=@noti_count%>
+	$("#noti_count").html(noti_count);
+	var my_noti_count = <%=@my_noti_count%>
+	$("#my_noti_count").html(my_noti_count);
+
 </script>

@@ -17,4 +17,4 @@
 //= require jquery.ui.all
 //= require select2
 //= require_tree .
-
+//= require summernote.min

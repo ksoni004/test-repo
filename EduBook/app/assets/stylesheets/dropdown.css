@@ -1,0 +1,52 @@
+.collapsenavbar-collapse .dropdown ul li a {
+    display: block;
+    text-decoration: none;
+    
+    color: #333;
+    padding: 10px 0;
+    transition: all 0.3s ease-out;
+    border-bottom: 1px solid #e6e8ea;
+}
+
+.course{
+    margin-left: 5px;
+}
+
+.abc{
+     color: red;
+}
+.collapsenavbar-collapse .dropdown ul li:last-of-type a {
+    border: none;
+}
+
+
+/* Hover state */
+
+.collapsenavbar-collapse .dropdown ul li:hover a {
+    color: #57a9d9;
+}
+
+.for_css  li{
+    display: block;
+    text-decoration: none;
+    border:none;
+    color: #333;
+    padding: 10px 0;
+    transition: all 0.3s ease-out;
+
+}
+
+.for_css ul li:hover a{
+    color: #57a9d9;
+
+}
+
+.for_css ul li:last-of-type a{
+    border: none;
+}
+
+.book{
+    border: 0;
+}
+
+.navbar-left li a.active{background-color:#C0C0C0}

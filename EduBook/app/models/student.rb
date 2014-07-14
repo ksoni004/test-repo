@@ -1,4 +1,5 @@
 class Student < ActiveRecord::Base
+	has_many :feedbacks
 	validates :email, :uniqueness => true
 	
 	def self.authenticate(email, password)
