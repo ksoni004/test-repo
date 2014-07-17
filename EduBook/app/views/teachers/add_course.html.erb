@@ -2,22 +2,26 @@
 	<form action="/course" method="post">
 		
 		<% if flash[:notice] %>
-			<div class="notice" style="margin-left:40px;margin-bottom:-25	px"><h4 style="color:red;text-align:center"><%= flash[:notice] %></h4></div>
+			<div class="notice" style="margin-left:10px;margin-bottom:-25	px"><h4 style="color:red;text-align:center"><%= flash[:notice] %></h4></div>
 		<% end %>
-		<br/><br/><br/>
+		<br/>
+		<div class="panel" style="margin-left:325px;margin-right:325px">
+			<div style="border-bottom: 1px solid #999;background-color:white">
+			<h4>Add Subject</h4>
+		</div>
 		<input type="hidden" value=<%=@teacher.id %> name="t_id">
-		<label style="margin-left:-220px">Subject Name <span style="padding-left:20px">:</span> </label>	
-		<div class="form_group" style="float:center;width:18%;margin-top:-32px;margin-left:200px">
-			<input type="text" class="form-control" name="course_name" required placeholder="Enter Subject Name"/>
+		<label class="aka1" style="margin-left:-225px">Subject Name <span style="padding-left:20px">:</span> </label>	
+		<div class="form_group" style="float:center;width:40%;margin-top:-48px;margin-left:104px">
+			<input type="text" style="border-radius: 0px 0px 0px 0px"class="form-control" name="course_name" required placeholder="Enter Subject Name"/>
 		</div>
 
 		<br/><br/>
 
-		<label style="margin-left:-200px">Subject for<span style="padding-left:20px">:</span> </label>
+		<label style="margin-left:-224px">Subject for<span style="padding-left:45px">:</span> </label>
 
-		<div class="form_group" style="float:center;width:18%;margin-top:-32px;margin-left:200px">
+		<div class="form_group" style="float:center;width:40%;margin-top:-35px;margin-left:105px">
 			
-			<select class="form-control" name="semesters[]" multiple="true" id="a1" placeholder="Enter Semesters">
+			<select style="border-radius: 0px 0px 0px 0px" class="form-control" name="semesters[]" multiple="true" id="a1" placeholder="Enter Semesters">
 				<% @semesters.each do |semester| %>
 					<option value= <%=semester.id %> > <%= semester.year %> - <%= semester.branch %> - <%= semester.semester_type%> </option>
 				<% end %>
@@ -27,8 +31,9 @@
 
 		<br/><br/>
 
-		<button type="submit"  class="btn btn-warning" style="border-style:solid; border-color: black;margin-left:40px; background-color:purple">Create Subject</button>
+		<button type="submit"  class="btn btn-info" style="margin-bottom:25px;border-radius: 0px 0px 0px 0px;margin-left:20px">Create Subject</button>
 	</form>
+	</div>
 	
 </div>
 

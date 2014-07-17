@@ -1,52 +1,105 @@
-.collapsenavbar-collapse .dropdown ul li a {
-    display: block;
-    text-decoration: none;
-    
-    color: #333;
-    padding: 10px 0;
-    transition: all 0.3s ease-out;
-    border-bottom: 1px solid #e6e8ea;
+.nav .dropdown ul li a {
+   display: block;
+   text-decoration: none;
+   
+   color: #333;
+   padding: 10px 0;
+   transition: all 0.3s ease-out;
+   border-bottom: 1px solid #e6e8ea;
 }
 
 .course{
-    margin-left: 5px;
+   margin-left: 5px;
 }
 
 .abc{
-     color: red;
+    color: red;
 }
-.collapsenavbar-collapse .dropdown ul li:last-of-type a {
-    border: none;
+.nav.dropdown ul li:last-of-type a {
+   border: none;
+}
+
+.navbar-collapse ul li:last-of-type a {
+   border: none;
 }
 
 
 /* Hover state */
 
-.collapsenavbar-collapse .dropdown ul li:hover a {
-    color: #57a9d9;
+.nav .dropdown ul li:hover a {
+   color: #57a9d9;
 }
 
-.for_css  li{
-    display: block;
-    text-decoration: none;
-    border:none;
-    color: #333;
-    padding: 10px 0;
-    transition: all 0.3s ease-out;
+.navbar-collapse  li{
+   display: block;
+   text-decoration: none;
+    padding: 0px 0px 0px 0px ;
+   border:none;
+   color: #333;
+   transition: all 0.3s ease-out;
+   border-bottom: 1px solid #e6e8ea;
 
 }
-
-.for_css ul li:hover a{
-    color: #57a9d9;
-
+.navbar-collapse ul li:hover a{
+   color: #57a9d9;
 }
 
-.for_css ul li:last-of-type a{
-    border: none;
+.navbar-collapse ul li:last-of-type a{
+   navbar-collapseborder: none;
 }
 
 .book{
-    border: 0;
+   border: 0;
 }
 
-.navbar-left li a.active{background-color:#C0C0C0}
+.navbar-left li a.active{background-color:#E0E0E0;
+
+}
+
+.panel .panel-heading {
+  background-color:white;
+  font-weight:700;
+  font-size:16px;
+  color:#262626;
+  border-color:#ffffff;
+ 
+    border-bottom: 1px solid #999;
+    
+}
+
+.aka{
+    
+    margin-left: -80px;
+    margin-top: 50px;
+    height: 50px;
+}
+ .panel{
+   margin-left: 300px;
+
+   margin-right: 300px;
+ }
+
+ .aka1{
+    
+    margin-left: -80px;
+    margin-top: 20px;
+    height: 40px;
+}
+
+.mmo{
+   border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    border-top: 1px solid #999;
+    margin-left: 300px;
+   margin-right: 300px;
+}
+
+.note-editable{
+  background-color: white;
+}
+.note-editor{
+  width:95%;
+  margin-left:12px;
+}
+

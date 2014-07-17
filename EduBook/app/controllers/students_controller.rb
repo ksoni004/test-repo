@@ -75,7 +75,7 @@ class StudentsController < ApplicationController
 
 	def s_overall_notification
 		upload_count
-		@notification = Notification.order("created_at ASC").joins("INNER JOIN semesters ON semesters.id = notifications.semester").joins("INNER JOIN teachers ON teachers.id = notifications.teacher_id").select("notifications.*, semesters.year as year, semesters.branch as branch,semesters.semester_type as semester_type, teachers.name as teacher_name,teachers.surname as teacher_surname").paginate(:page => params[:page], :per_page => 5)
+		@notifications = Notification.order("created_at ASC").joins("INNER JOIN semesters ON semesters.id = notifications.semester").joins("INNER JOIN teachers ON teachers.id = notifications.teacher_id").select("notifications.*, semesters.year as year, semesters.branch as branch,semesters.semester_type as semester_type, teachers.name as teacher_name,teachers.surname as teacher_surname").paginate(:page => params[:page], :per_page => 5)
 		render 'students/s_overall_notification', :layout => "students_layout"
 	end
 
@@ -84,6 +84,17 @@ class StudentsController < ApplicationController
 		#for badge_count
 		upload_count
 		render 'students/total_uploads', :layout => "students_layout"
+	end
+
+	def update_counter
+		if !params["id"].nil?
+			document = Document.find(params["id"].to_i)
+			document.counter = document.counter + 1
+			document.save
+			render :json=>document.counter, :status=> 200
+		else
+			render :json=>{ "success" => true}, :status=> 400
+		end
 	end
 
 	def s_add_feedback

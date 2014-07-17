@@ -2,7 +2,7 @@
 {
 position:absolute;
 left: 641px;
-top: 562px;
+top: 605px;
 background:#222526;
 text-shadow:0 2px 0px #121212;
 color:#999999;
@@ -23,7 +23,7 @@ font-size: 13px;
 #b1{
     background-image: url(teacher.svg);
      background-size: 100% 100%;
-     margin-right: 8px;
+     margin-right: 78px;
      padding-left: 2px 8px;
      padding-left: 35px;
      border-radius: 0px 0px 0px 0px;
@@ -32,7 +32,7 @@ font-size: 13px;
 #b2{
     background-image: url(student.svg);
     background-size: 100% 100%;
-    margin-right: 8px;
+    margin-right: 40px;
     padding-left: 2px 8px;
     padding-left: 35px;
     border-radius: 0px 0px 0px 0px;

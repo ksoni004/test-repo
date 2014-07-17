@@ -8,36 +8,42 @@
 		
 		<br/><br/><br/>
 		<input type="hidden" value = <%= @teacher.email%> name="email"/>
-
-		<label style="margin-right:200px">Select Course <span style="padding-left:20px">:</span> </label>
-		<div class="form_group" style="float:center;width:15%;margin-top:-32px;margin-left:200px">
-			<select class="form-control" name="course">
-				<% @courses.each do |course| %>
-					<option value="<%= course.id %>" > <%=course.course_name%></option>
-				<% end %>
-			</select>
-		</div>
-
-		<br/>
-		<br/>
 		
-		<label style="margin-left:-200px">Select file<span style="padding-left:50px">:</span> </label>
-		<div  style="float:center;width:25%;margin-top:-32px;margin-left:200px">
-			<input  type="file" id="inputfile" name="avatar" style="margin-top:-26px;margin-left:70px"/>
+		<div style="margin-top:-30px" class="panel">
+			<div class="panel-heading">
+			<h4>Upload Notes</h4>
+		</div>
+		<div class="aka">
+			<label style="margin-right:200px">Select Course <span style="padding-left:20px">:</span> </label>
+			<div class="form_group" style="float:center;width:15%;margin-top:-32px;margin-left:200px">
+				<select class="form-control" name="course" style="margin-left:-120px;width:100px">
+					<% @courses.each do |course| %>
+						<option value="<%= course.id %>" > <%=course.course_name%></option>
+					<% end %>
+				</select>
+			</div>
+			</div>
+
+			<div class="aka1">
+			<label style="margin-left:-200px">Select file<span style="padding-left:50px">:</span> </label>
+			<div  style="float:center;width:25%;margin-top:-26px;margin-left:-20px">
+				<input  type="file" id="inputfile" name="avatar" style="margin-top:-26px;margin-left:70px"/>
+			</div>
 		</div>
 
-		<br/>
-		<br/>
-		<br/>
-		
-		<div class="form_group" style="float:center;width:15%;margin-top:-32px;margin-left:200px">
-			<textarea class="form-control" style="margin-left:-150px;width:380px;resize:none;height:100px" name="comment" placeholder="Any Comments?"></textarea>
+			<br/>
+			<br/>
+			<br/>
+			
+			<div class="form_group" style="float:center;width:15%;margin-top:-32px;margin-left:200px">
+				<textarea class="form-control" style="margin-left:-250px;width:380px;resize:none;height:100px" name="comment" placeholder="Any Comments?"></textarea>
+			</div>
+
+			<br/>
+			<br/>
+
+			<button type="submit"  class="btn btn-info" style="margin-top:-10px;border-style:solid;margin-left:20px;margin-bottom:25px;border-radius: 0px 0px 0px 0px;"><i class="fa fa-upload" style="margin-right:10px"></i>Upload Notes</button>
 		</div>
-
-		<br/>
-		<br/>
-
-		<button type="submit"  class="btn btn-danger" style="border-style:solid; border-color: black;margin-left:50px"><i style="margin-right:5px" class="fa fa-upload"></i>Upload Notes</button>
 	</form>
 </div>
 <script>

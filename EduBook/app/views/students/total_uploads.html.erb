@@ -1,35 +1,40 @@
 
-<table style="border-width:2px black; background-color: #D3D3D3; table-layout:fixed" class="table table-bordered">
+<div class="container"style="background-color:white">
+
+<table style="border-width:2px black;margin-top:20px;table-layout:fixed" class="table table-bordered">
 	<colgroup>
 	  <col style="width:100px">
 	  <col style="width:89px">
 	  <col style="width:100px">
 	  <col style="width:150px">
 	  <col style="width:75px">
+	  <col style="width:50px">
 	</colgroup>
-	<tr style="background-color: grey">
-	    <th style="text-align:center;width:100px;border:2px solid black">Uploaded by</th>
-	    <th style="text-align:center;width:89px;border:2px solid black">Subject</th>
-	    <th style="text-align:center;width:100px;border:2px solid black">Uploaded on</th>
-	    <th style="text-align:center;width:150px;border:2px solid black">Comment</th>
-	    <th colspan=2 style="text-align:center;width:75px;border:2px solid black">Options</th>
+	<tr>
+	    <th style="text-align:center;width:100px;">Uploaded by</th>
+	    <th style="text-align:center;width:89px;">Subject</th>
+	    <th style="text-align:center;width:100px;">Uploaded on</th>
+	    <th style="text-align:center;width:150px;">Comment</th>
+	    <th colspan=2 style="text-align:center;width:75px;">Options</th>
 	</tr>
 
 	<% @documents.each do |document| %>
-		<tr style="border:2px solid grey">
-			<td style="border:2px solid black" align="center"><%= document.teacher_name %></td>
-			<td style="border:2px solid black" align="center"><%= document.course_name %></td>
-			<td style="border:2px solid black" align="center"><%= document.created_at.to_formatted_s(:long_ordinal)%></td>
-			<td style="border:2px solid black" align="center"><%= document.comment %></td>
-			<td colspan=2 style="border:2px solid black"align="center">
+		<tr>
+			<td align="center"><%= document.teacher_name %></td>
+			<td align="center"><%= document.course_name %></td>
+			<td align="center"><%= document.created_at.to_formatted_s(:long_ordinal)%></td>
+			<td align="center"><%= document.comment %></td>
+			<td colspan=2 align="center">
 				<p>
-				<a class="btn btn-primary btn-sm" href="http://docs.google.com/viewer?url=http://enigmatic-dawn-9721.herokuapp.com<%= document.avatar.url%>&embedded=true" target="_blank"><i style="margin-right:5px" class="fa fa-file-pdf-o"></i>View</a>
-				<a class="btn btn-warning btn-sm" href= "<%= document.avatar.url%>"><i style="margin-right:5px" class="fa fa-download"></i>Download</a>
+				<a style="border-radius: 0px 0px 0px 0px" class="btn btn-info btn-sm" href="http://docs.google.com/viewer?url=http://enigmatic-dawn-9721.herokuapp.com<%= document.avatar.url%>&embedded=true" target="_blank"><i style="margin-right:5px" class="fa fa-file-pdf-o"></i>View</a>
+				<a style="border-radius: 0px 0px 0px 0px" class="download_button btn btn-primary btn-sm" type="button" id="<%=document.id%>" href= "<%= document.avatar.url%>"><i style="margin-right:5px" class="fa fa-download"></i>Download</a>
+				<i style="margin-left:4px;font-size:2em" class="fa fa-download fa-6"></i><span style="margin-left:5px" id="<%=document.id%>_counter" name="counter"><%=document.counter%></span>
 				</p>
 			</td>
 		</tr>
 	<% end %>
 </table>
+</div>
 <div class="apple_pagination" style="position:absolute;left:550px;top:550px">
 	<%=will_paginate @documents%>
 </div>
@@ -38,5 +43,22 @@
 	var total_count = <%=@total_count%>
 	$("#total_count").html(total_count);
 	var noti_count = <%=@noti_count%>
-	$("#noti_count").html(noti_count);		
+	$("#noti_count").html(noti_count);	
+
+	$(".download_button").on('click', function(e)
+	{
+		var id = e.currentTarget.id;
+	  var data = {};
+		data["id"] = id;
+    $.ajax(
+    	{
+    		url : "/overall_uploads",
+    		method : "POST",
+    		data : data,
+    		async: false
+    	}).done(function(data)
+	  		{
+	  			$("#"+id+"_counter").html(data);
+	  		});
+	});	
 </script>

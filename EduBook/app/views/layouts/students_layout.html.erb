@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="shortcut icon" type="image/png" href="assets/ebook.png">
   <title>EduBook</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<nav class="navbar navbar-inverse" role="navigation">
-		<a class="navbar-brand" style="margin-top:6px;color:#57a9d9"href="/"><b>EduBook</b></a>
-		<a class="navbar-brand" style="margin-top:6px"href="/student_profile">Profile</a>
-		<a class="navbar-brand" style="margin-top:6px"href="/total_uploads">Uploads <span class="badge" id="total_count"></span></a>
-		<a style="color:white;font-size:34px;margin-top:4px"class="btn glyphicon glyphicon-bell" style="font-size:34px" type="button" href="/s_overall_notification"><span style="padding-left:5px;margin-left:-12px;position:absolute;margin-top:-4px;padding-right:5px;padding-bottom:5px;padding-top:3px;color:black" class="badge" id="noti_count"></span></a>
-
-		<div style="margin-top:-55px;margin-left:35px" class="for_css">
-			  <li  style="margin-left:1280px;margin-top:-10px;margin-bottom:-2px" class="for_css_2"  id="dropdownMenu2" data-toggle="dropdown"><i style="font-size:3em; color: white" class="fa fa-cog fa-3"></i></li>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2" style="margin-left:1176px">
-							<li role="presentation" ><a role="menuitem" tabindex="-1" href="/s_change_password"><span class="glyphicon glyphicon-lock"><span class="course" >Change</span><span style="margin-left:5px">Password</span></a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="/s_feedback" ><i class="fa fa-star-o"></i><span class="course">FeedBack</span></a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="/student_logout" ><i class="fa fa-power-off"></i><span class="course">Logout</span></a></li>
-			  </ul>
-			 </div>
-	</nav>
-
+<body style="background-color:#e0e0e0">
+	<div style="background-color:white" class="navbar navbar-default" id="subnav">
+  <div class="col-md-12" style="padding-left: 0px;">
+    <div id="arrowunderline" class="navbar-header">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="logo"><a></a></li>
+        <li class="sliding-u-l-r-l"><a style="color:grey" href="/"><b>EduBook</b></a></li>
+        <li class="sliding-u-l-r-l" ><a href="/student_profile">Profile</i></a></li>
+        <li class="sliding-u-l-r-l"><a href="/total_uploads">Uploads<span id="total_count" style="position:absolute;right:0px;margin-top:-10px" class="badge"></span></a></li>
+        <li class="sliding-u-l-r-l"><a href="/s_overall_notification" tabindex="1"><i style="font-size:18px" class="fa fa-bell-o"></i><span id="noti_count" style="position:absolute;right:0.01px;margin-top:-10px" class="badge"></span></a></li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse2">
+      <div class="nav navbar-nav navbar-right">
+        <a href="#" style="margin-left:15px;" class="navbar-btn btn btn-default btn-plus dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars" style="color:black"></i></a>
+        <ul class="nav dropdown-menu" style="padding:0px 0px;border-radius: 0px 0px 0px 0px">
+          <li><a href="/s_change_password"><i class="fa fa-wrench"></i> Change Password</a></li>
+          <li><a href="/s_feedback"><i class="fa fa-star-o"></i> Feedback</a></li>
+          <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>  
+ </div> 
+</div>
+<script>
+  $(document).ready(function(){
+    var loc = window.location.pathname
+    $(".navbar-left li").find("a").each(function(){
+      $(this).toggleClass("active", $(this).attr("href")==loc);
+    });
+    
+  });
+</script>
+<div id="wrap">
 <%= yield %>
-
+</div>
 </body>
 </html>

@@ -2,15 +2,19 @@
 <form action="/notification" method="post">
 
 	<% if flash[:notice6] %>
-		<div class="notice" style="margin-left:530px">
+		<div class="notice" style="margin-left:405px">
 			<h4 style="color:red"><%= flash[:notice6] %></h4>
 		</div>
 	<% end %>
-
+	<div class="panel">
+		<div class="panel-heading">
+			<h4 align="center">Add Notification</h4>
+		</div>
+	<br/>
 	<input type="text" name="comment" class="summernote" />
-
-	<div class="form_group" style="float:center;width:15%;margin-top:12px;margin-left:490px">
-		<select class="form-control" name="semesters[]" multiple="true" id="a1" placeholder="Enter Semesters">
+	<br/>
+	<div class="form_group" style="margin-left:50px;width:80%;margin-top:12px;">
+		<select class="form-control" style="border-radius: 0px 0px 0px 0px" name="semesters[]" multiple="true" id="a1" placeholder="Enter Semesters">
 			<% @semesters.each do |semester| %>
 				<option value="<%=semester.id %>"> <%= semester.year %> <%= semester.branch %> <%= semester.semester_type%> </option>
 			<% end %>
@@ -19,10 +23,11 @@
 
 	</br>
 
-	<div style="margin-left:700px; margin-top:-52px">
-		<input  style="background-color:grey" class="btn" type="submit" value="Submit" />
+	<div align="center">
+		<input  style="border-radius: 0px 0px 0px 0px" class="btn btn-info" type="submit" value="Submit" />
 	</div>
-
+	<br/>
+</div>
 </form>
 
 <script>
@@ -36,8 +41,8 @@
 	$("#noti_count").html(noti_count);	
 	var my_noti_count = <%=@my_noti_count%>
 	$("#my_noti_count").html(my_noti_count);
-
 	$(document).ready(function() {
+		
   	$('.summernote').summernote(
   	{
   		height: 200,                 // set editor height

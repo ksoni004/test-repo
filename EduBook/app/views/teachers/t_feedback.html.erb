@@ -1,20 +1,18 @@
-
-<div align="center">
-  <h1><b>Feedback is valuable!!</b></h1>
+<div align="center" class="panel" style="margin-left:100px;width:80%">
+<div align="center" class="panel-heading">
+  <h1 style="color:#5bc0de"><b>Feedback is valuable!!</b></h1>
 </div>
 <br/>
-<br/>
-<hr style="height:1px;border:none;color:#333;background-color:#333;">
-
-<form action="/t_feedback" method = "post" >
 
 <% if flash[:notice1] %>
-  <div class="notice"><h4 style="color:red;text-align:center"><%= flash[:notice1] %></h4></div>
+  <div class="notice" style="margin-top: -30px;"><h4 style="color:red;text-align:center"><%= flash[:notice1] %></h4></div>
 <% end %>
 
+<div align="center">
+<form action="/t_feedback" method = "post" >
 <div>
-<div style="margin-left:200px"><b>User Interface : </b></div>
-<div class="rating" style="margin-left:400px;margin-top:-30px" >
+<div style="margin-left:20px;color:#222526;color:#222526"><b>User Interface</b><span style="margin-left:10px"><b>:</b></span></div>
+<div class="rating" style="margin-left:250px;margin-top:-30px" >
   <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
   <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
   <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
@@ -22,8 +20,8 @@
   <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
 </div>
 
-<div style="margin-left:800px;margin-top:-22px"><b>Simplicity : </b></div>
-<div class="rating" style="margin-left:1000px;margin-top:-40px">
+<div style="margin-left:600px;margin-top:-22px;color:#222526"><b>Simplicity</b><span style="margin-left:60px"><b>:</b></span></div>
+<div class="rating" style="margin-left:770px;margin-top:-40px">
   <input type="radio" id="star6" name="rating1" value="5" /><label for="star6" title="Rocks!">5 stars</label>
   <input type="radio" id="star7" name="rating1" value="4" /><label for="star7" title="Pretty good">4 stars</label>
   <input type="radio" id="star8" name="rating1" value="3" /><label for="star8" title="Meh">3 stars</label>
@@ -31,11 +29,11 @@
   <input type="radio" id="star10" name="rating1" value="1" /><label for="star10" title="Sucks big time">1 star</label>
 </div>
 </div>
-<hr style="height:1px;border:none;color:#333;background-color:#333;">
+<hr style="height:1px;border:none;color:#dddddd;background-color:#dddddd;">
 
 <div>
-<div style="margin-left:200px"><b>performance : </b></div>
-<div class="rating" style="margin-left:400px;margin-top:-30px">
+<div style="margin-left:100px;color:#222526"><b>Performance</b><span style="margin-left:20px"><b>:</b></span></div>
+<div class="rating" style="margin-left:250px;margin-top:-30px">
   <input type="radio" id="star11" name="rating2" value="5" /><label for="star11" title="Rocks!">5 stars</label>
   <input type="radio" id="star12" name="rating2" value="4" /><label for="star12" title="Pretty good">4 stars</label>
   <input type="radio" id="star13" name="rating2" value="3" /><label for="star13" title="Meh">3 stars</label>
@@ -44,8 +42,8 @@
 </div>
 
 
-<div style="margin-left:800px;margin-top:-22px"><b>Content Quality : </b></div>
-<div class="rating" style="margin-left:1000px;margin-top:-40px">
+<div style="margin-left:600px;margin-top:-22px;color:#222526"><b>Content Quality</b><span style="margin-left:20px"><b>:</b></span></div>
+<div class="rating" style="margin-left:770px;margin-top:-40px">
   <input type="radio" id="star16" name="rating3" value="5" /><label for="star16" title="Rocks!">5 stars</label>
   <input type="radio" id="star17" name="rating3" value="4" /><label for="star17" title="Pretty good">4 stars</label>
   <input type="radio" id="star18" name="rating3" value="3" /><label for="star18" title="Meh">3 stars</label>
@@ -53,11 +51,11 @@
   <input type="radio" id="star20" name="rating3" value="1" /><label for="star20" title="Sucks big time">1 star</label>
 </div>
 </div>
-<hr style="height:1px;border:none;color:#333;background-color:#333;">
+<hr style="height:1px;border:none;color:#dddddd;background-color:#dddddd;">
 
 <div>
-<div style="margin-left:200px"><b>Background : </b></div>
-<div class="rating" style="margin-left:400px;margin-top:-30px">
+<div style="margin-left:100px;color:#222526"><b>Background</b><span style="margin-left:20px"><b>:</b></span></div>
+<div class="rating" style="margin-left:250px;margin-top:-30px">
   <input type="radio" id="star21" name="rating4" value="5" /><label for="star21" title="Rocks!">5 stars</label>
   <input type="radio" id="star22" name="rating4" value="4" /><label for="star22" title="Pretty good">4 stars</label>
   <input type="radio" id="star23" name="rating4" value="3" /><label for="star23" title="Meh">3 stars</label>
@@ -65,8 +63,8 @@
   <input type="radio" id="star25" name="rating4" value="1" /><label for="star25" title="Sucks big time">1 star</label>
 </div>
 
-<div style="margin-left:800px;margin-top:-22px"><b>Navigation : </b></div>
-<div class="rating" style="margin-left:1000px;margin-top:-40px">
+<div style="margin-left:600px;margin-top:-22px;color:#222526"><b>Navigation</b><span style="margin-left:55px"><b>:</b></span></div>
+<div class="rating" style="margin-left:770px;margin-top:-40px">
   <input type="radio" id="star26" name="rating5" value="5" /><label for="star26" title="Rocks!">5 stars</label>
   <input type="radio" id="star27" name="rating5" value="4" /><label for="star27" title="Pretty good">4 stars</label>
   <input type="radio" id="star28" name="rating5" value="3" /><label for="star28" title="Meh">3 stars</label>
@@ -74,11 +72,11 @@
   <input type="radio" id="star30" name="rating5" value="1" /><label for="star30" title="Sucks big time">1 star</label>
 </div>
 </div>
-<hr style="height:1px;border:none;color:#333;background-color:#333;">
+<hr style="height:1px;border:none;color:#dddddd;background-color:#dddddd;">
 
 <div>
-<div style="margin-left:200px"><b>Links : </b></div>
-<div class="rating" style="margin-left:400px;margin-top:-30px">
+<div style="margin-left:100px;color:#222526"><b>Links</b><span style="margin-left:65px"><b>:</b></span></div>
+<div class="rating" style="margin-left:250px;margin-top:-30px">
   <input type="radio" id="star31" name="rating6" value="5" /><label for="star31" title="Rocks!">5 stars</label>
   <input type="radio" id="star32" name="rating6" value="4" /><label for="star32" title="Pretty good">4 stars</label>
   <input type="radio" id="star33" name="rating6" value="3" /><label for="star33" title="Meh">3 stars</label>
@@ -86,8 +84,8 @@
   <input type="radio" id="star35" name="rating6" value="1" /><label for="star35" title="Sucks big time">1 star</label>
 </div>
 
-<div style="margin-left:800px;margin-top:-22px"><b>Color Choices : </b></div>
-<div class="rating" style="margin-left:1000px;margin-top:-40px">
+<div style="margin-left:600px;margin-top:-22px;color:#222526"><b>Color Choices</b><span style="margin-left:30px"><b>:</b></span></div>
+<div class="rating" style="margin-left:770px;margin-top:-40px">
   <input type="radio" id="star36" name="rating7" value="5" /><label for="star36" title="Rocks!">5 stars</label>
   <input type="radio" id="star37" name="rating7" value="4" /><label for="star37" title="Pretty good">4 stars</label>
   <input type="radio" id="star38" name="rating7" value="3" /><label for="star38" title="Meh">3 stars</label>
@@ -95,11 +93,11 @@
   <input type="radio" id="star40" name="rating7" value="1" /><label for="star40" title="Sucks big time">1 star</label>
 </div>
 </div>
-<hr style="height:1px;border:none;color:#333;background-color:#333;">
+<hr style="height:1px;border:none;color:#dddddd;background-color:#dddddd;">
 
 <div>
-<div style="margin-left:200px"><b>Graphics : </b></div>
-<div class="rating" style="margin-left:400px;margin-top:-30px">
+<div style="margin-left:100px;color:#222526"><b>Graphics</b><span style="margin-left:40px"><b>:</b></span></div>
+<div class="rating" style="margin-left:250px;margin-top:-30px">
   <input type="radio" id="star41" name="rating8" value="5" /><label for="star41" title="Rocks!">5 stars</label>
   <input type="radio" id="star42" name="rating8" value="4" /><label for="star42" title="Pretty good">4 stars</label>
   <input type="radio" id="star43" name="rating8" value="3" /><label for="star43" title="Meh">3 stars</label>
@@ -107,8 +105,8 @@
   <input type="radio" id="star45" name="rating8" value="1" /><label for="star45" title="Sucks big time">1 star</label>
 </div>
 
-<div style="margin-left:800px;margin-top:-22px"><b>Spelling and Grammar : </b></div>
-<div class="rating" style="margin-left:1000px;margin-top:-40px">
+<div style="margin-left:600px;margin-top:-22px;color:#222526"><b>Spelling and<br/>Grammar</b><div style="margin-left:125px;margin-top:-40px"><b>:</b></div></div>
+<div class="rating" style="margin-left:770px;margin-top:-40px">
   <input type="radio" id="star46" name="rating9" value="5" /><label for="star46" title="Rocks!">5 stars</label>
   <input type="radio" id="star47" name="rating9" value="4" /><label for="star47" title="Pretty good">4 stars</label>
   <input type="radio" id="star48" name="rating9" value="3" /><label for="star48" title="Meh">3 stars</label>
@@ -116,13 +114,14 @@
   <input type="radio" id="star50" name="rating9" value="1" /><label for="star50" title="Sucks big time">1 star</label>
 </div>
 </div>
-<hr style="height:1px;border:none;color:#333;background-color:#333;">
+<hr style="height:1px;border:none;color:#dddddd;background-color:#dddddd;margin-top:35px">
   <div align="center">
-    <input style="margin-right:30px" align="center" class="btn btn-info" type="submit" value="Submit" />
+    <input style="margin-right:30px; border-radius: 0px 0px 0px 0px;margin-bottom:20px" align="center" class="btn btn-info" type="submit" value="Submit" />
   </div>
 
 </form>
-
+  </div>
+</div>
 <script>
   var my_count = <%=@my_count%>
   $("#my_count").html(my_count);

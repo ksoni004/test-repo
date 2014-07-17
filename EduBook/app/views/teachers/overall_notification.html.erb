@@ -1,29 +1,31 @@
 
-<table style="border-width:2px black;  table-layout:fixed" class="table table-bordered" id="total_count">
+<div class="container"style="background-color:white">
+<table style="margin-top:20px;border-width:2px black;table-layout:fixed" class="table table-bordered" id="total_count">
 	
 	<colgroup>
 	  <col style="width:50px">
-	  <col style="width:40px">
-	  <col style="widths:30px">
+	  <col style="width:65px">
+	  <col style="widths:50px">
 	  <col style="width:150px">
 	</colgroup>
 	
-	<tr style="background-color: grey">
-	    <th style="text-align:center;width:50px;border:2px solid black">Uploaded by</th>
-	    <th style="text-align:center;width:40px;border:2px solid black">Uploaded on</th>
-	    <th style="text-align:center;width:30px;border:2px solid black">Uploaded for</th>
-	    <th style="text-align:center;width:150px;border:2px solid black">Comment</th>
+	<tr>
+    <th style="text-align:center;width:50px;">Uploaded by</th>
+    <th style="text-align:center;width:65px;">Uploaded on</th>
+    <th style="text-align:center;width:50px;">Uploaded for</th>
+    <th style="text-align:center;width:150px;">Comment</th>
 	</tr>
 
 	<% @notifications.each do |notification| %>
-		<tr style="border:2px solid grey">
-			<td style="border:2px solid black" align="center"><%= notification.teacher_name+" "+notification.teacher_surname %></td>
-			<td style="border:2px solid black" align="center"><%= notification.created_at.to_formatted_s(:long_ordinal) %></td>
-			<td style="border:2px solid black" align="center"><%= notification.year+ " "+notification.branch %></td>
-			<td style="border:2px solid black"><%= notification.comment.html_safe %></td>
+		<tr>
+			<td align="center"><%=notification.teacher_name+" "+notification.teacher_surname %></td>
+			<td align="center"><%= notification.created_at.to_formatted_s(:long_ordinal) %></td>
+			<td align="center"><%= notification.year+ " "+notification.branch %></td>
+			<td><%= notification.comment.html_safe %></td>
 		</tr>
 	<% end %>
 </table>
+</div>
 <hr>
 <div class="apple_pagination" style="position:absolute;left:550px">
 	<%=will_paginate @notifications%>

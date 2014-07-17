@@ -70,6 +70,8 @@ get '/student_profile' => "students#profile"
 
 get '/total_uploads' => "students#total_uploads"
 
+post '/total_uploads' =>"students#update_counter"
+
 get '/student_logout' => "students#student_logout"
 
 get '/s_change_password' => "students#s_change_password", :as => 's_change_password'

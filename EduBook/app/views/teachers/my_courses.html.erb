@@ -1,10 +1,10 @@
 
-<div align="center" style="width:40%">
-	<h2 style="color:blue">My Subjects</h2>
+<div align="center" class="container" style="width:40%">
+	<h2 style="color:grey">My Subjects</h2>
 	</br>
 	<ul class="list-group">
 		<% @courses.each do |course| %>
-			<li class="list-group-item"><h4 style="color:#FF0066"><strong><%= course.course_name %></strong></h4></li>
+			<li class="list-group-item"><h4 style="color:brown"><strong><%= course.course_name %></strong></h4></li>
 		<% end %>
 	</ul>
 </div>

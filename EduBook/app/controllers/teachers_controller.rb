@@ -101,7 +101,7 @@ class TeachersController < ApplicationController
 			s = Semester.find(semester)
 			course.semesters.push(s)
 		end
-		flash[:notice]="Course Added Successfully....!!!!"
+		flash[:notice]="Subject Added Successfully....!!!!"
 		redirect_to :add_course, :layout => "teachers_layout"
 
 	end
